@@ -1,5 +1,8 @@
 package com.example.cloud.configuration;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -15,5 +18,12 @@ public class AppConfiguration {
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setPackagesToScan("com.example.cloud.entity");
 		return sessionFactory;
+	}
+	
+	@Bean
+	public DateFormat dateFormat() {
+		SimpleDateFormat format = new SimpleDateFormat();
+		format.applyPattern("dd/MM/yyyy");
+		return format;
 	}
 }
