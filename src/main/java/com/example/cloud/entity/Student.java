@@ -9,20 +9,26 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.example.cloud.constant.Gender;
 
 @Entity
+@Table(name = "student")
 public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
-	@Column(name = "IDENTITY_NUMBER")
+	@Column(name = "identity_number")
 	private String identityNumber;
+	@Column(name = "name")
 	private String name;
+	@Column(name = "dob")
 	private Date dob;
 	@Enumerated(EnumType.STRING)
+	@Column(name = "gender")
 	private Gender gender;
 
 	public Long getId() {
